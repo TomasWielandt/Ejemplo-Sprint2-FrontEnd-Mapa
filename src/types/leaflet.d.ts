@@ -1,9 +1,9 @@
-import 'leaflet';
+// import 'leaflet';
 
-declare module 'leaflet' {
-    namespace Icon {
-        interface Default {
-            _getIconUrl?: () => string;
-        }
-    }
-}
+// declare module 'leaflet' {
+//     namespace Icon {
+//         interface Default {
+//             _getIconUrl?: () => string;
+//         }
+//     }
+// }
