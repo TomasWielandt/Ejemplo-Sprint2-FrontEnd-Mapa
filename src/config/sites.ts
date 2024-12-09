@@ -1,4 +1,4 @@
-export const markers: { position: [number, number]; name: string }[] = [
+export const sites: { position: [number, number]; name: string }[] = [
     { position: [-33.046073, -71.612698], name: 'Local 1, Valparaíso' },
     { position: [-33.024529, -71.551469], name: 'Local 2, Viña del Mar' },
     { position: [-33.4489, -70.6693], name: 'Local 3, Santiago' },

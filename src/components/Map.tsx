@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { markers } from '../config/markers'; // Importa el archivo de configuración TypeScript
+import { sites } from '../config/sites'; // Importa el archivo de configuración TypeScript
 
 // Solución para íconos de Leaflet
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
@@ -37,17 +37,17 @@ const Map = () => {
           onChange={(e) => {
             const selectedIndex = e.target.value;
             if (selectedIndex !== '') {
-              const marker = markers[Number(selectedIndex)];
-              setSelectedCoords(marker.position);
+              const site = sites[Number(selectedIndex)];
+              setSelectedCoords(site.position);
             } else {
               setSelectedCoords(null);
             }
           }}
         >
           <option value="">Selecciona un lugar</option>
-          {markers.map((marker, index) => (
+          {sites.map((site, index) => (
             <option key={index} value={index}>
-              {marker.name}
+              {site.name}
             </option>
           ))}
         </select>
@@ -63,11 +63,11 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {/* Renderiza los marcadores a partir de la configuración */}
-        {markers.map((marker, index) => (
-          <Marker key={index} position={marker.position}>
+        {sites.map((site, index) => (
+          <Marker key={index} position={site.position}>
             <Popup>
-              <strong>{marker.name}</strong><br />
-              <span>Posición: {marker.position[0]}, {marker.position[1]}</span>
+              <strong>{site.name}</strong><br />
+              <span>Posición: {site.position[0]}, {site.position[1]}</span>
             </Popup>
           </Marker>
         ))}
